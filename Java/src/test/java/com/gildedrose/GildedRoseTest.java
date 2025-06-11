@@ -42,10 +42,20 @@ class GildedRoseTest {
     void brieIncreasesQuality() {
         Item[] items = new Item[] { new Item("Aged Brie", 2, 0) };
         GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(1, items[0].quality);
+    }
+
+    @Test
+    void brieMaxQualityFifty() {
+        Item[] items = new Item[] { new Item("Aged Brie", 2, 50) };
+        GildedRose app = new GildedRose(items);
     
         app.updateQuality();
     
-        assertEquals(1, items[0].quality);
+        assertEquals(50, items[0].quality);
     }
 
 }
